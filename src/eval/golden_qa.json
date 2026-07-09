@@ -1,0 +1,40 @@
+{
+  "corpus_note": "Q&A pairs tied to data/corpus/*.md. Includes lookups, multi-hop, no-answer, and ambiguous cases.",
+  "cases": [
+    {
+      "id": "lookup-1",
+      "question": "What port does the API server listen on by default?",
+      "expected_answer": "8080",
+      "type": "lookup",
+      "answerable": true
+    },
+    {
+      "id": "lookup-2",
+      "question": "Which environment variable holds the database connection string?",
+      "expected_answer": "DATABASE_URL",
+      "type": "lookup",
+      "answerable": true
+    },
+    {
+      "id": "multihop-1",
+      "question": "If I enable caching, which other setting must I also configure for it to work?",
+      "expected_answer": "You must set REDIS_URL, since caching depends on Redis.",
+      "type": "multi_hop",
+      "answerable": true
+    },
+    {
+      "id": "noanswer-1",
+      "question": "What is the company's parental leave policy?",
+      "expected_answer": "The documentation does not contain this information.",
+      "type": "no_answer",
+      "answerable": false
+    },
+    {
+      "id": "ambiguous-1",
+      "question": "How do I configure the timeout?",
+      "expected_answer": "There are two timeouts documented (request timeout and idle timeout); the answer should ask which one or address both.",
+      "type": "ambiguous",
+      "answerable": true
+    }
+  ]
+}
